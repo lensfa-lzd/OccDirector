@@ -1,0 +1,145 @@
+/* OccDirector project page styles.
+   Based on the Nerfies project page template (nerfies.github.io), adapted for
+   a figure-driven page with local (self-hosted) fonts. */
+
+/* ---- Local fonts (self-hosted, no external CDN) ---- */
+@font-face {
+  font-family: 'Noto Sans';
+  src: url('../fonts/noto-sans-400.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Noto Sans';
+  src: url('../fonts/noto-sans-400-italic.woff2') format('woff2');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Noto Sans';
+  src: url('../fonts/noto-sans-700.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+body {
+  font-family: 'Noto Sans', sans-serif;
+}
+
+/* ---- Hero / authors ---- */
+.publication-title {
+  font-family: 'Noto Sans', sans-serif;
+  font-weight: 700;
+}
+
+.publication-authors {
+  font-family: 'Noto Sans', sans-serif;
+}
+
+.publication-authors a {
+  color: hsl(204, 86%, 53%) !important;
+}
+
+.publication-authors a:hover {
+  text-decoration: underline;
+}
+
+.author-block {
+  display: inline-block;
+}
+
+.publication-venue {
+  color: #555;
+  width: fit-content;
+  margin: 0 auto 0.75rem auto;
+  font-weight: bold;
+}
+
+.link-block a {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+/* "Coming soon" buttons: greyed out, not clickable. Remove the class (and the
+   <span class="soon-tag">) once the real link is available. */
+a.button.coming-soon {
+  opacity: 0.45;
+  pointer-events: none;
+  cursor: default;
+}
+
+.soon-tag {
+  font-size: 0.65rem;
+  font-weight: 700;
+  margin-left: 0.4rem;
+  padding: 0.1rem 0.45rem;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.25);
+  letter-spacing: 0.02em;
+}
+
+/* ---- Teaser ---- */
+.teaser .hero-body {
+  padding-top: 0;
+  padding-bottom: 3rem;
+}
+
+/* ---- Figures ---- */
+.figure-img {
+  width: 100%;
+  border-radius: 8px;
+  border: 1px solid #e0e0e0;
+  display: block;
+}
+
+.figure-caption {
+  font-size: 0.9rem;
+  color: #555;
+  margin-top: 0.6rem;
+  text-align: justify;
+}
+
+.figure-caption strong {
+  color: #333;
+}
+
+/* ---- Results tables ---- */
+.results-table {
+  font-size: 0.88rem;
+}
+
+.results-table th,
+.results-table td {
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+.table-note {
+  font-size: 0.85rem;
+  color: #666;
+  margin-top: 0.4rem;
+  text-align: justify;
+}
+
+/* ---- Method blocks ---- */
+.method-block h3 {
+  margin-top: 1.25rem;
+}
+
+/* ---- Footer ---- */
+.footer .icon-link {
+  font-size: 25px;
+  color: #000;
+}
+
+.occdirector {
+  font-variant: small-caps;
+  font-weight: 600;
+}
+
+section {
+  scroll-margin-top: 4rem;
+}

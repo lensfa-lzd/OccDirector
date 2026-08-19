@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="OccDirector generates 4D occupancy dynamics for autonomous driving conditioned solely on natural language, acting as a scenario director that orchestrates static layouts, agent-environment interactions, and multi-agent behaviors.">
+  <meta name="keywords" content="OccDirector, 4D Occupancy Generation, Language-Guided Scene Generation, Autonomous Driving, World Model">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>OccDirector: Language-Guided Behavior and Interaction Generation in 4D Occupancy Space</title>
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.min.css">
+  <link rel="stylesheet" href="./static/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/favicon.svg">
+</head>
+<body>
+
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbar-menu">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <div id="navbar-menu" class="navbar-menu">
+    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+      <a class="navbar-item" href="#abstract">Abstract</a>
+      <a class="navbar-item" href="#method">Method</a>
+      <a class="navbar-item" href="#results">Results</a>
+      <a class="navbar-item" href="#demos">Demos</a>
+      <a class="navbar-item" href="#dataset">Dataset</a>
+      <a class="navbar-item" href="#citation">Citation</a>
+    </div>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">OccDirector: Language-Guided Behavior and
+            Interaction Generation in 4D Occupancy Space</h1>
+
+          <div class="publication-venue">ECCV 2026</div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">Zhuding Liang<sup>1</sup><sup>*</sup>,</span>
+            <span class="author-block">Tianyi Yan<sup>1</sup><sup>*</sup>,</span>
+            <span class="author-block">Dubing Chen<sup>1</sup>,</span>
+            <span class="author-block">Jiasen Zheng<sup>2</sup>,</span>
+            <span class="author-block">Huan Zheng<sup>1</sup>,</span>
+            <span class="author-block">Cheng-zhong Xu<sup>1</sup>,</span>
+            <span class="author-block">Yida Wang<sup>3</sup>,</span>
+            <span class="author-block">Kun Zhan<sup>3</sup>,</span>
+            <span class="author-block">Jianbing Shen<sup>1</sup><sup>&dagger;</sup></span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>SKL-IOTSC, CIS, University of Macau&ensp;&ensp;</span>
+            <span class="author-block"><sup>2</sup>Northwestern University&ensp;&ensp;</span>
+            <span class="author-block"><sup>3</sup>Li Auto Inc.</span>
+          </div>
+
+          <div class="is-size-6 publication-authors" style="color:#777;">
+            <span class="author-block"><sup>*</sup>Equal Contribution&ensp;</span>
+            <span class="author-block"><sup>&dagger;</sup>Corresponding Author</span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- To enable a link: set the real href and remove the
+                   "coming-soon" class and the <span class="soon-tag"> child. -->
+              <span class="link-block">
+                <a href="#" class="external-link button is-normal is-rounded is-dark coming-soon">
+                  <span class="icon">
+                    <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                  <span class="soon-tag">SOON</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="#" class="external-link button is-normal is-rounded is-dark coming-soon">
+                  <span class="icon">
+                    <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                  <span class="soon-tag">SOON</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="#" class="external-link button is-normal is-rounded is-dark coming-soon">
+                  <span class="icon">
+                    <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  <span class="soon-tag">SOON</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="#" class="external-link button is-normal is-rounded is-dark coming-soon">
+                  <span class="icon">
+                    <i class="fas fa-database"></i>
+                  </span>
+                  <span>Dataset</span>
+                  <span class="soon-tag">SOON</span>
+                </a>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <img src="./static/images/teaser.jpg" class="figure-img"
+           alt="OccDirector teaser: script-driven behavior and interaction generation."/>
+      <h2 class="subtitle figure-caption has-text-centered">
+        <strong>Script-driven behavior and interaction generation with OccDirector.</strong>
+        (a) vs. (b): comparison between previous methods and our script-driven approach.
+        (c) hierarchical generation capabilities across Static, Agent-Environment, and
+        Multi-Agent levels. The ego vehicle is marked with a <i>black car icon</i>.
+        <i>Note: due to raw data limitations, some results may exhibit missing ego voxels or
+          sensor blind spots.</i>
+      </h2>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="abstract">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Generative world models increasingly rely on 4D occupancy for realistic autonomous
+            driving simulation. However, existing generation frameworks depend on rigid
+            geometric conditions (e.g., explicit trajectories) or simplistic attribute-level
+            text, failing to orchestrate complex, sequential multi-agent interactions.
+          </p>
+          <p>
+            To address this semantic-spatiotemporal gap, we propose
+            <span class="occdirector">OccDirector</span>, a pioneering framework that generates
+            4D occupancy dynamics conditioned solely on natural language. Operating as a
+            &ldquo;scenario director&rdquo;, OccDirector maps natural language scripts into
+            physically plausible voxel dynamics without requiring geometric priors.
+            Technically, it employs a VLM-driven Spatio-Temporal MMDiT equipped with a
+            history-prefix anchoring strategy to ensure long-horizon interaction consistency.
+          </p>
+          <p>
+            Furthermore, we introduce <b>OccInteract-85k</b>, a novel dataset uniquely
+            annotated with multi-level language instructions: ranging from static layouts to
+            intricate multi-agent behaviors, alongside a novel VLM-based evaluation benchmark.
+            Extensive experiments demonstrate that OccDirector achieves state-of-the-art
+            generation quality and unprecedented instruction-following capabilities,
+            successfully shifting the paradigm from appearance synthesis to language-driven
+            behavior orchestration.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="method">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">Method</h2>
+    <div class="content has-text-centered">
+      <img src="./static/images/architecture.jpg" class="figure-img"
+           alt="OccDirector model architecture."/>
+      <p class="figure-caption">
+        <strong>Model architecture of OccDirector.</strong>
+        <b>(a) Scalable 4D Generation Backbone:</b> a Spatio-Temporal MMDiT processes text and
+        occupancy tokens via dual streams, utilizing separated spatial and temporal attention.
+        <b>(b) Semantic Extraction:</b> a frozen VLM and a Token Refiner bridge the
+        semantic-spatial gap.
+        <b>(c) Interaction-Consistent Forecasting:</b> the history-anchoring strategy ensures
+        the generated future strictly adheres to the context during both training and sampling.
+      </p>
+    </div>
+
+    <div class="content has-text-justified method-block">
+      <h3 class="title is-4">Joint Latent Representation</h3>
+      <p>
+        A frozen <b>Occ-VAE</b> compresses the discrete 4D occupancy rollout
+        into a compact continuous latent grid, which is patchified into occupancy tokens.
+        Unlike prior implementations, the Occ-VAE is pretrained with variable-length rollouts,
+        enabling flexible generation horizons. On the text side, a frozen
+        <b>Vision-Language Model</b> replaces CLIP-style &ldquo;bag-of-words&rdquo; encoders to
+        capture the relational and procedural semantics of interaction-heavy scripts
+        (e.g., yielding, cut-in). A lightweight bidirectional <b>Token Refiner</b> then projects
+        the VLM features into the model dimension, bridging the semantic-spatial divide.
+      </p>
+
+      <h3 class="title is-4">Scalable 4D Generation Backbone</h3>
+      <p>
+        Modeling multi-agent interactions over 4D space demands long-range dependencies, yet
+        full attention over spatial&times;temporal tokens is computationally prohibitive.
+        OccDirector adopts a double-stream <b>Spatio-Temporal MMDiT</b> with
+        <b>Spatio-Temporal Separated Attention (STSA)</b>: frame-wise 3D spatial joint attention
+        grounds the script onto each layout, followed by patch-wise temporal self-attention
+        that propagates dynamics smoothly over time, aligned with separated 3D+1D Rotary
+        Positional Embeddings.
+      </p>
+
+      <h3 class="title is-4">Interaction-Consistent Forecasting via History Anchoring</h3>
+      <p>
+        OccDirector is trained with <b>Flow Matching</b>. To keep long-horizon rollouts
+        consistent with user-provided history contexts, we introduce a stochastic
+        <b>token-replace anchoring</b> strategy: during training, the noisy history prefix is
+        randomly replaced with clean ground-truth tokens, and the loss only penalizes future
+        frames. At inference, the history prefix is overwritten with the clean condition at
+        every ODE step. Because the model is explicitly trained to condition on clean history,
+        this step-wise anchoring introduces no out-of-distribution artifacts.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="results" style="background:#fafafa;">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">Results</h2>
+
+    <h3 class="title is-4 has-text-centered">Single-frame visual quality</h3>
+    <div class="table-container">
+      <table class="table is-striped is-hoverable is-fullwidth results-table">
+        <thead>
+        <tr>
+          <th>Method</th>
+          <th>IS &uarr;</th>
+          <th>FID &darr;</th>
+          <th>KID &darr;</th>
+          <th>Precision &uarr;</th>
+          <th>Recall &uarr;</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td>DOME</td>
+          <td>3.21</td>
+          <td>67</td>
+          <td>0.06</td>
+          <td>0.38</td>
+          <td><b>0.23</b></td>
+        </tr>
+        <tr>
+          <td>COME</td>
+          <td>3.26</td>
+          <td>77</td>
+          <td>0.06</td>
+          <td><b>0.40</b></td>
+          <td><b>0.23</b></td>
+        </tr>
+        <tr>
+          <td>DynamicCity</td>
+          <td><b>3.39</b></td>
+          <td><b>61</b></td>
+          <td><b>0.05</b></td>
+          <td>0.31</td>
+          <td><b>0.23</b></td>
+        </tr>
+        <tr>
+          <td>DynamicCity + CLIP</td>
+          <td>3.39</td>
+          <td>65</td>
+          <td><b>0.05</b></td>
+          <td>0.32</td>
+          <td><b>0.24</b></td>
+        </tr>
+        <tr>
+          <td>DynamicCity + T5</td>
+          <td>3.36</td>
+          <td>66</td>
+          <td><b>0.05</b></td>
+          <td>0.31</td>
+          <td>0.22</td>
+        </tr>
+        <tr>
+          <td>OccDirector w/o history-prefix control</td>
+          <td>3.39</td>
+          <td>64</td>
+          <td><b>0.05</b></td>
+          <td><b>0.34</b></td>
+          <td><b>0.24</b></td>
+        </tr>
+        <tr>
+          <td>OccDirector w/ history-prefix control</td>
+          <td><b>3.40</b></td>
+          <td><b>62</b></td>
+          <td><b>0.05</b></td>
+          <td>0.33</td>
+          <td>0.23</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="table-note">
+      Per-frame image fidelity and diversity, evaluated with Inception Score (IS), Fr&eacute;chet
+      Inception Distance (FID), Kernel Inception Distance (KID), Precision and Recall.
+      Although traditional methods rely on explicit geometric conditions, OccDirector achieves
+      comparable per-frame quality while being conditioned purely on text.
+    </p>
+
+    <h3 class="title is-4 has-text-centered">Video generation quality and instruction alignment</h3>
+    <div class="table-container">
+      <table class="table is-striped is-hoverable is-fullwidth results-table">
+        <thead>
+        <tr>
+          <th rowspan="2">Method</th>
+          <th colspan="3" style="text-align:center;">Video realism</th>
+          <th colspan="4" style="text-align:center;">Instruction alignment</th>
+        </tr>
+        <tr>
+          <th>FVD &darr;</th>
+          <th>Precision &uarr;</th>
+          <th>Recall &uarr;</th>
+          <th>Compl. &uarr;</th>
+          <th>Struct. &uarr;</th>
+          <th>Sem. Align. &uarr;</th>
+          <th>Mean &uarr;</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td>DOME</td>
+          <td>437</td>
+          <td>0.55</td>
+          <td>0.03</td>
+          <td>N/A</td>
+          <td>N/A</td>
+          <td>N/A</td>
+          <td>N/A</td>
+        </tr>
+        <tr>
+          <td>COME</td>
+          <td><b>391</b></td>
+          <td>0.56</td>
+          <td>0.04</td>
+          <td>N/A</td>
+          <td>N/A</td>
+          <td>N/A</td>
+          <td>N/A</td>
+        </tr>
+        <tr>
+          <td>DynamicCity</td>
+          <td>401</td>
+          <td><b>0.57</b></td>
+          <td><b>0.08</b></td>
+          <td>N/A</td>
+          <td>N/A</td>
+          <td>N/A</td>
+          <td>N/A</td>
+        </tr>
+        <tr>
+          <td>DynamicCity + CLIP</td>
+          <td>388</td>
+          <td>0.60</td>
+          <td>0.008</td>
+          <td>3.03</td>
+          <td>3.54</td>
+          <td>2.69</td>
+          <td>3.09</td>
+        </tr>
+        <tr>
+          <td>DynamicCity + T5</td>
+          <td>396</td>
+          <td><b>0.64</b></td>
+          <td>0.02</td>
+          <td>2.84</td>
+          <td>3.34</td>
+          <td>2.73</td>
+          <td>2.97</td>
+        </tr>
+        <tr>
+          <td>OccDirector w/o history-prefix control</td>
+          <td>354</td>
+          <td>0.48</td>
+          <td><b>0.12</b></td>
+          <td>3.59</td>
+          <td>3.66</td>
+          <td>3.04</td>
+          <td>3.43</td>
+        </tr>
+        <tr>
+          <td>OccDirector w/ history-prefix control</td>
+          <td><b>275</b></td>
+          <td>0.58</td>
+          <td><b>0.12</b></td>
+          <td><b>3.81</b></td>
+          <td><b>4.01</b></td>
+          <td><b>3.32</b></td>
+          <td><b>3.73</b></td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="table-note">
+      OccDirector achieves an FVD of <b>275</b>, outperforming the strongest text-adapted
+      baseline (DynamicCity + CLIP, FVD 388) by <b>29.1%</b>. The extremely low Recall of
+      CLIP/T5 baselines (e.g., 0.008) reveals severe mode collapse, while OccDirector covers a
+      much wider diversity of dynamic scenarios. Instruction alignment is scored by a VLM judge
+      on a 1&ndash;5 rubric.
+    </p>
+
+    <h3 class="title is-4 has-text-centered">Ablation study</h3>
+    <div class="table-container">
+      <table class="table is-striped is-hoverable is-fullwidth results-table">
+        <thead>
+        <tr>
+          <th rowspan="2">Backbone</th>
+          <th rowspan="2">Token Refiner</th>
+          <th colspan="3" style="text-align:center;">Video realism</th>
+          <th colspan="4" style="text-align:center;">VLM score &uarr;</th>
+        </tr>
+        <tr>
+          <th>FVD &darr;</th>
+          <th>Precision &uarr;</th>
+          <th>Recall &uarr;</th>
+          <th>Compl. &uarr;</th>
+          <th>Struct. &uarr;</th>
+          <th>Instr. follow &uarr;</th>
+          <th>Mean &uarr;</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td>Full attention</td>
+          <td>&times;</td>
+          <td>592</td>
+          <td><b>0.48</b></td>
+          <td>0.02</td>
+          <td><b>2.98</b></td>
+          <td><b>2.86</b></td>
+          <td>2.48</td>
+          <td>2.77</td>
+        </tr>
+        <tr>
+          <td>Full attention</td>
+          <td>&#10003;</td>
+          <td><b>532</b></td>
+          <td>0.41</td>
+          <td><b>0.07</b></td>
+          <td>2.97</td>
+          <td>2.74</td>
+          <td><b>2.63</b></td>
+          <td><b>2.78</b></td>
+        </tr>
+        <tr>
+          <td>STSA (ours)</td>
+          <td>&times;</td>
+          <td>407</td>
+          <td>0.49</td>
+          <td><b>0.14</b></td>
+          <td>3.46</td>
+          <td>3.39</td>
+          <td>2.86</td>
+          <td>3.24</td>
+        </tr>
+        <tr>
+          <td>STSA (ours)</td>
+          <td>&#10003;</td>
+          <td><b>354</b></td>
+          <td><b>0.58</b></td>
+          <td>0.12</td>
+          <td><b>3.59</b></td>
+          <td><b>3.66</b></td>
+          <td><b>3.04</b></td>
+          <td><b>3.43</b></td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="table-note">
+      Impact of the attention mechanism (Full vs. STSA) and the Token Refiner, evaluated
+      without history control. STSA reduces FVD from 532 to 354 and lifts the VLM score from
+      2.78 to 3.43; removing the Token Refiner degrades FVD from 354 to 407.
+    </p>
+
+    <h3 class="title is-4 has-text-centered">Qualitative comparison on fine-grained text alignment</h3>
+    <div class="content has-text-centered">
+      <img src="./static/images/qual_comparison.jpg" class="figure-img"
+           alt="Qualitative comparison of text-to-occupancy alignment."/>
+      <p class="figure-caption">
+        <strong>Qualitative comparison of text-to-occupancy alignment.</strong>
+        We evaluate adherence to fine-grained instructions: (Left) negation and cardinality;
+        (Middle) dynamic attribute binding; (Right) complex &ldquo;cut-in&rdquo; trajectory.
+        While CLIP/T5 baselines hallucinate extra vehicles, confuse attributes, or revert to
+        lane-following, OccDirector follows the script precisely.
+      </p>
+    </div>
+
+    <h3 class="title is-4 has-text-centered">Long-horizon narrative generation</h3>
+    <div class="content has-text-centered">
+      <img src="./static/images/qual_history.jpg" class="figure-img"
+           alt="Long-horizon narrative generation with history-prefix control."/>
+      <p class="figure-caption">
+        <strong>Long-horizon narrative generation.</strong> Multi-stage rollouts for a
+        stop-and-go scenario (top) and an emergency braking event (bottom). History-prefix
+        control maintains spatio-temporal coherence and causal logic across generation stages.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="demos">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">Hierarchical Control</h2>
+    <div class="content has-text-justified">
+      <p>
+        By replacing rigid trajectory inputs with a director-like natural language interface,
+        OccDirector enables comprehensive controllability along three complementary axes:
+        <b>(i) Static Environment</b>, synthesizing diverse topologies like &ldquo;traffic
+        jams&rdquo; via semantic composition; <b>(ii) Agent-Environment Interaction</b>,
+        executing topology-constrained maneuvers such as yielding at intersections; and
+        <b>(iii) Multi-Agent Interaction</b>, generating physically plausible reactive behaviors
+        like &ldquo;emergency braking to avoid collisions&rdquo;.
+      </p>
+    </div>
+    <div class="content has-text-centered">
+      <img src="./static/images/hierarchical_control.jpg" class="figure-img"
+           alt="Hierarchical control samples across Static, Agent-Environment and Multi-Agent levels."/>
+      <p class="figure-caption">
+        Hierarchical generation samples across the Static, Agent-Environment, and Multi-Agent
+        control levels, driven purely by natural language scripts.
+      </p>
+    </div>
+    <div class="content has-text-centered">
+      <img src="./static/images/long_horizon.jpg" class="figure-img"
+           alt="Long-horizon generation samples."/>
+      <p class="figure-caption">
+        Additional long-horizon rollouts orchestrated by multi-stage language scripts.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="dataset" style="background:#fafafa;">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">OccInteract-85k Dataset</h2>
+    <div class="content has-text-justified">
+      <p>
+        To train OccDirector with language-conditioned occupancy prediction, we build
+        <b>OccInteract-85k</b> via an automated data engine that translates real-world logs
+        (UniOcc), large-scale simulation (CarlaSC protocol), and text-defined safety-critical
+        scenarios (TTSG) into paired occupancy&ndash;language instances. All annotations are
+        generated with structured prompting and enforced output schemas, enabling scalable
+        production and automatic filtering.
+      </p>
+    </div>
+
+    <div class="table-container">
+      <table class="table is-striped is-hoverable is-centered results-table">
+        <thead>
+        <tr>
+          <th>Dataset</th>
+          <th># Instances</th>
+          <th>Total Duration</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td>OccInteract-Static</td>
+          <td>73.5k</td>
+          <td>N/A (Single-frame)</td>
+        </tr>
+        <tr>
+          <td>OccInteract-Env</td>
+          <td>7.6k</td>
+          <td>128&thinsp;h</td>
+        </tr>
+        <tr>
+          <td>OccInteract-Agent</td>
+          <td>4.6k</td>
+          <td>12&thinsp;h</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="table-note">
+      Instances denote single frames for OccInteract-Static and video clips for
+      OccInteract-Env / OccInteract-Agent.
+    </p>
+
+    <div class="content has-text-justified method-block">
+      <h3 class="title is-4">Three complementary corpora</h3>
+      <p>
+        <b>OccInteract-Static</b> pairs single-frame BEV semantic occupancy snapshots with
+        ego-centric layout captions focusing on road topology and drivable regions.
+        <b>OccInteract-Env</b> provides clip-level supervision around key maneuvers at
+        junctions, each with a discrete ego-action command and local topology description.
+        <b>OccInteract-Agent</b> covers routine driving to safety-critical near-misses, with
+        interaction-focused captions and a VLM-predicted criticality score
+        (s&thinsp;&isin;&thinsp;[0,&thinsp;10]) whose trimodal distribution enables targeted
+        sampling of rare, high-risk scenarios.
+      </p>
+    </div>
+
+    <div class="content has-text-centered method-block">
+      <h3 class="title is-4">Automated annotation pipeline</h3>
+      <div class="columns is-centered">
+        <div class="column">
+          <img src="./static/images/pipeline_turnpoint.jpg" class="figure-img"
+               alt="Environment-interaction annotation pipeline."/>
+          <p class="figure-caption">
+            Environment-interaction annotation: road-geometry analysis detects junctions and
+            turn points in collected occupancy clips, and a frozen VLM generates
+            schema-constrained captions around each key maneuver (OccInteract-Env).
+          </p>
+        </div>
+        <div class="column">
+          <img src="./static/images/pipeline_multiagent.jpg" class="figure-img"
+               alt="Multi-agent annotation pipeline."/>
+          <p class="figure-caption">
+            Multi-agent annotation: text-defined safety-critical scenarios are rendered into
+            occupancy rollouts and captioned with an interaction-focused description plus a
+            VLM-predicted criticality score (OccInteract-Agent).
+          </p>
+        </div>
+      </div>
+      <img src="./static/images/pipeline_bev.jpg" class="figure-img"
+           style="width:200px; margin:0 auto;"
+           alt="Unified semantic occupancy legend."/>
+      <p class="figure-caption">
+        Unified 11-class semantic occupancy legend used for BEV rendering across all sources.
+      </p>
+    </div>
+
+    <div class="content has-text-centered">
+      <img src="./static/images/dataset_distribution.jpg" class="figure-img"
+           style="max-width:720px; margin:0 auto;"
+           alt="Data statistics of OccInteract-Agent."/>
+      <p class="figure-caption">
+        <strong>Data statistics of OccInteract-Agent.</strong> (a) Distribution of clip lengths.
+        (b) Histogram of VLM-predicted criticality scores. (c) Distribution of caption lengths.
+      </p>
+    </div>
+
+    <div class="content has-text-centered method-block">
+      <h3 class="title is-4">Automated quality assessment</h3>
+      <div class="table-container">
+        <table class="table is-striped is-hoverable is-fullwidth results-table">
+          <thead>
+          <tr>
+            <th>Dataset</th>
+            <th>Judge VLM</th>
+            <th>Completeness &uarr;</th>
+            <th>Structural &uarr;</th>
+            <th>Sem. Align. &uarr;</th>
+            <th>Mean &uarr;</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr>
+            <td>OccInteract-Static</td>
+            <td><code>gemini-3.0-pro</code></td>
+            <td>4.16</td>
+            <td>4.20</td>
+            <td>3.84</td>
+            <td><b>4.08</b></td>
+          </tr>
+          <tr>
+            <td>OccInteract-Static</td>
+            <td><code>gpt-5.2</code></td>
+            <td>2.97</td>
+            <td>3.71</td>
+            <td>3.03</td>
+            <td>3.24</td>
+          </tr>
+          <tr>
+            <td>OccInteract-Static</td>
+            <td><code>qwen3-vl-235b-a22b-instruct</code></td>
+            <td>3.22</td>
+            <td>3.84</td>
+            <td>3.97</td>
+            <td>3.68</td>
+          </tr>
+          <tr>
+            <td>OccInteract-Env</td>
+            <td><code>gemini-3.0-pro</code></td>
+            <td>4.62</td>
+            <td>4.60</td>
+            <td>3.55</td>
+            <td><b>4.26</b></td>
+          </tr>
+          <tr>
+            <td>OccInteract-Env</td>
+            <td><code>gpt-5.2</code></td>
+            <td>3.21</td>
+            <td>3.78</td>
+            <td>3.01</td>
+            <td>3.33</td>
+          </tr>
+          <tr>
+            <td>OccInteract-Env</td>
+            <td><code>qwen3-vl-235b-a22b-instruct</code></td>
+            <td>3.32</td>
+            <td>3.81</td>
+            <td>3.66</td>
+            <td>3.60</td>
+          </tr>
+          <tr>
+            <td>OccInteract-Agent</td>
+            <td><code>gemini-3.0-pro</code></td>
+            <td>4.51</td>
+            <td>4.53</td>
+            <td>3.49</td>
+            <td><b>4.18</b></td>
+          </tr>
+          <tr>
+            <td>OccInteract-Agent</td>
+            <td><code>gpt-5.2</code></td>
+            <td>3.21</td>
+            <td>3.72</td>
+            <td>2.58</td>
+            <td>3.17</td>
+          </tr>
+          <tr>
+            <td>OccInteract-Agent</td>
+            <td><code>qwen3-vl-235b-a22b-instruct</code></td>
+            <td>3.30</td>
+            <td>3.64</td>
+            <td>3.32</td>
+            <td>3.42</td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="table-note">
+        Mean rubric scores (1&ndash;5) from three independent VLM judges, assessing the quality
+        of the generated dataset. Despite the increasing complexity from static layouts to
+        multi-agent interactions, score variance under the same judge remains minimal,
+        validating the reliability of the automated pipeline.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="citation">
+  <div class="container is-max-desktop content">
+    <h2 class="title is-3 has-text-centered">Citation</h2>
+    <pre><code>@inproceedings{liang2026occdirector,
+  author    = {Liang, Zhuding and Yan, Tianyi and Chen, Dubing and Zheng, Jiasen
+               and Zheng, Huan and Xu, Cheng-zhong and Wang, Yida and Zhan, Kun
+               and Shen, Jianbing},
+  title     = {OccDirector: Language-Guided Behavior and Interaction Generation
+               in 4D Occupancy Space},
+  booktitle = {European Conference on Computer Vision (ECCV)},
+  year      = {2026},
+}</code></pre>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <p>
+        This website is licensed under a <a rel="license"
+                                            href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+        Commons Attribution-ShareAlike 4.0 International License</a>.
+      </p>
+      <p>
+        The page was adapted from the
+        <a href="https://nerfies.github.io">Nerfies</a> project page template &mdash; we thank
+        the authors for sharing it.
+      </p>
+    </div>
+  </div>
+</footer>
+
+<script src="./static/js/index.js"></script>
+</body>
+</html>
