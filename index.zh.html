@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
   <meta charset="utf-8">
   <meta name="description"
-        content="OccDirector generates 4D occupancy dynamics for autonomous driving conditioned solely on natural language, acting as a scenario director that orchestrates static layouts, agent-environment interactions, and multi-agent behaviors.">
-  <meta name="keywords" content="OccDirector, 4D Occupancy Generation, Language-Guided Scene Generation, Autonomous Driving, World Model">
+        content="OccDirector 仅以自然语言为条件生成面向自动驾驶的 4D 占据动态，如同「场景导演」一般统筹静态布局、智能体-环境交互与多智能体行为。">
+  <meta name="keywords" content="OccDirector, 4D 占据生成, 语言引导的场景生成, 自动驾驶, 世界模型">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>OccDirector: Language-Guided Behavior and Interaction Generation in 4D Occupancy Space</title>
+  <title>OccDirector：语言引导的 4D 占据空间行为与交互生成</title>
   <link rel="alternate" hreflang="en" href="https://lensfa-lzd.github.io/OccDirector/index.html">
   <link rel="alternate" hreflang="zh-CN" href="https://lensfa-lzd.github.io/OccDirector/index.zh.html">
   <link rel="alternate" hreflang="x-default" href="https://lensfa-lzd.github.io/OccDirector/index.html">
@@ -19,9 +19,9 @@
 </head>
 <body>
 
-<nav class="navbar" role="navigation" aria-label="main navigation">
+<nav class="navbar" role="navigation" aria-label="主导航">
   <div class="navbar-brand">
-    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbar-menu">
+    <a role="button" class="navbar-burger" aria-label="菜单" aria-expanded="false" data-target="navbar-menu">
       <span aria-hidden="true"></span>
       <span aria-hidden="true"></span>
       <span aria-hidden="true"></span>
@@ -29,13 +29,13 @@
   </div>
   <div id="navbar-menu" class="navbar-menu">
     <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
-      <a class="navbar-item" href="#abstract">Abstract</a>
-      <a class="navbar-item" href="#method">Method</a>
-      <a class="navbar-item" href="#results">Results</a>
-      <a class="navbar-item" href="#demos">Demos</a>
-      <a class="navbar-item" href="#dataset">Dataset</a>
-      <a class="navbar-item" href="#citation">Citation</a>
-      <a class="navbar-item" href="./index.zh.html" lang="zh">中文</a>
+      <a class="navbar-item" href="#abstract">摘要</a>
+      <a class="navbar-item" href="#method">方法</a>
+      <a class="navbar-item" href="#results">结果</a>
+      <a class="navbar-item" href="#demos">演示</a>
+      <a class="navbar-item" href="#dataset">数据集</a>
+      <a class="navbar-item" href="#citation">引用</a>
+      <a class="navbar-item" href="./index.html" lang="en">EN</a>
     </div>
   </div>
 </nav>
@@ -45,8 +45,7 @@
     <div class="container is-max-desktop">
       <div class="columns is-centered">
         <div class="column has-text-centered">
-          <h1 class="title is-1 publication-title">OccDirector: Language-Guided Behavior and
-            Interaction Generation in 4D Occupancy Space</h1>
+          <h1 class="title is-1 publication-title">OccDirector：语言引导的 4D 占据空间行为与交互生成</h1>
 
           <div class="publication-venue">ECCV 2026</div>
 
@@ -63,14 +62,14 @@
           </div>
 
           <div class="is-size-5 publication-authors">
-            <span class="author-block"><sup>1</sup>SKL-IOTSC, CIS, University of Macau&ensp;&ensp;</span>
-            <span class="author-block"><sup>2</sup>Northwestern University&ensp;&ensp;</span>
-            <span class="author-block"><sup>3</sup>Li Auto Inc.</span>
+            <span class="author-block"><sup>1</sup>澳门大学智慧城市物联网国家重点实验室&ensp;&ensp;</span>
+            <span class="author-block"><sup>2</sup>美国西北大学&ensp;&ensp;</span>
+            <span class="author-block"><sup>3</sup>理想汽车</span>
           </div>
 
           <div class="is-size-6 publication-authors" style="color:#777;">
-            <span class="author-block"><sup>*</sup>Equal Contribution&ensp;</span>
-            <span class="author-block"><sup>&dagger;</sup>Corresponding Author</span>
+            <span class="author-block"><sup>*</sup>同等贡献&ensp;</span>
+            <span class="author-block"><sup>&dagger;</sup>通讯作者</span>
           </div>
 
           <div class="column has-text-centered">
@@ -82,8 +81,8 @@
                   <span class="icon">
                     <i class="fas fa-file-pdf"></i>
                   </span>
-                  <span>Paper</span>
-                  <span class="soon-tag">SOON</span>
+                  <span>论文</span>
+                  <span class="soon-tag">敬请期待</span>
                 </a>
               </span>
               <span class="link-block">
@@ -92,7 +91,7 @@
                     <i class="ai ai-arxiv"></i>
                   </span>
                   <span>arXiv</span>
-                  <span class="soon-tag">SOON</span>
+                  <span class="soon-tag">敬请期待</span>
                 </a>
               </span>
               <span class="link-block">
@@ -100,8 +99,8 @@
                   <span class="icon">
                     <i class="fab fa-github"></i>
                   </span>
-                  <span>Code</span>
-                  <span class="soon-tag">SOON</span>
+                  <span>代码</span>
+                  <span class="soon-tag">敬请期待</span>
                 </a>
               </span>
               <span class="link-block">
@@ -109,8 +108,8 @@
                   <span class="icon">
                     <i class="fas fa-database"></i>
                   </span>
-                  <span>Dataset</span>
-                  <span class="soon-tag">SOON</span>
+                  <span>数据集</span>
+                  <span class="soon-tag">敬请期待</span>
                 </a>
               </span>
             </div>
@@ -125,14 +124,12 @@
   <div class="container is-max-desktop">
     <div class="hero-body">
       <img src="./static/images/teaser.jpg" class="figure-img"
-           alt="OccDirector teaser: script-driven behavior and interaction generation."/>
+           alt="OccDirector 预览图：剧本驱动的行为与交互生成。"/>
       <h2 class="subtitle figure-caption has-text-centered">
-        <strong>Script-driven behavior and interaction generation with OccDirector.</strong>
-        (a) vs. (b): comparison between previous methods and our script-driven approach.
-        (c) hierarchical generation capabilities across Static, Agent-Environment, and
-        Multi-Agent levels. The ego vehicle is marked with a <i>black car icon</i>.
-        <i>Note: due to raw data limitations, some results may exhibit missing ego voxels or
-          sensor blind spots.</i>
+        <strong>OccDirector 的剧本驱动行为与交互生成。</strong>
+        (a) 与 (b)：已有方法与本文剧本驱动方法的对比。
+        (c) 覆盖静态、智能体-环境与多智能体三个层级的分层生成能力。自车以「黑色车辆图标」标出。
+        注：受原始数据限制，部分结果可能出现自车体素缺失或传感器盲区。
       </h2>
     </div>
   </div>
@@ -142,31 +139,25 @@
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
-        <h2 class="title is-3">Abstract</h2>
+        <h2 class="title is-3">摘要</h2>
         <div class="content has-text-justified">
           <p>
-            Generative world models increasingly rely on 4D occupancy for realistic autonomous
-            driving simulation. However, existing generation frameworks depend on rigid
-            geometric conditions (e.g., explicit trajectories) or simplistic attribute-level
-            text, failing to orchestrate complex, sequential multi-agent interactions.
+            生成式世界模型日益依赖 4D 占据（4D occupancy）来构建逼真的自动驾驶仿真。然而，现有生成框架
+            或依赖刚性的几何条件（如显式轨迹），或仅使用简单的属性级文本描述，难以统筹复杂、时序性的
+            多智能体交互。
           </p>
           <p>
-            To address this semantic-spatiotemporal gap, we propose
-            <span class="occdirector">OccDirector</span>, a pioneering framework that generates
-            4D occupancy dynamics conditioned solely on natural language. Operating as a
-            &ldquo;scenario director&rdquo;, OccDirector maps natural language scripts into
-            physically plausible voxel dynamics without requiring geometric priors.
-            Technically, it employs a VLM-driven Spatio-Temporal MMDiT equipped with a
-            history-prefix anchoring strategy to ensure long-horizon interaction consistency.
+            为弥合这一语义-时空鸿沟，我们提出
+            <span class="occdirector">OccDirector</span>——一个仅以自然语言为条件的开创性 4D 占据动态
+            生成框架。OccDirector 如同「场景导演」，在无需任何几何先验的情况下，将自然语言剧本映射为
+            物理合理的体素动态。技术上，它采用由 VLM 驱动的 Spatio-Temporal MMDiT，并配备历史前缀锚定
+            （history-prefix anchoring）策略，以保证长时程交互的一致性。
           </p>
           <p>
-            Furthermore, we introduce <b>OccInteract-85k</b>, a novel dataset uniquely
-            annotated with multi-level language instructions: ranging from static layouts to
-            intricate multi-agent behaviors, alongside a novel VLM-based evaluation benchmark.
-            Extensive experiments demonstrate that OccDirector achieves state-of-the-art
-            generation quality and unprecedented instruction-following capabilities,
-            successfully shifting the paradigm from appearance synthesis to language-driven
-            behavior orchestration.
+            此外，我们构建了 <b>OccInteract-85k</b> 数据集，其独特之处在于配备多层级语言指令标注——
+            从静态布局到复杂的多智能体行为——并附带一个全新的基于 VLM 的评测基准。大量实验表明，
+            OccDirector 取得了最先进的生成质量与前所未有的指令遵循能力，成功将研究范式从表观合成
+            转变为语言驱动的行为统筹。
           </p>
         </div>
       </div>
@@ -176,54 +167,44 @@
 
 <section class="section" id="method">
   <div class="container is-max-desktop">
-    <h2 class="title is-3 has-text-centered">Method</h2>
+    <h2 class="title is-3 has-text-centered">方法</h2>
     <div class="content has-text-centered">
       <img src="./static/images/architecture.jpg" class="figure-img"
-           alt="OccDirector model architecture."/>
+           alt="OccDirector 模型架构图。"/>
       <p class="figure-caption">
-        <strong>Model architecture of OccDirector.</strong>
-        <b>(a) Scalable 4D Generation Backbone:</b> a Spatio-Temporal MMDiT processes text and
-        occupancy tokens via dual streams, utilizing separated spatial and temporal attention.
-        <b>(b) Semantic Extraction:</b> a frozen VLM and a Token Refiner bridge the
-        semantic-spatial gap.
-        <b>(c) Interaction-Consistent Forecasting:</b> the history-anchoring strategy ensures
-        the generated future strictly adheres to the context during both training and sampling.
+        <strong>OccDirector 模型架构。</strong>
+        <b>(a) 可扩展 4D 生成骨干：</b>Spatio-Temporal MMDiT 以双流形式处理文本与占据词元，
+        并采用空间-时间分离注意力。
+        <b>(b) 语义提取：</b>冻结的 VLM 与 Token Refiner 共同弥合语义-空间鸿沟。
+        <b>(c) 交互一致的预测：</b>历史锚定策略确保训练与采样两个阶段生成的未来
+        都严格遵循上下文。
       </p>
     </div>
 
     <div class="content has-text-justified method-block">
-      <h3 class="title is-4">Joint Latent Representation</h3>
+      <h3 class="title is-4">联合潜在表示</h3>
       <p>
-        A frozen <b>Occ-VAE</b> compresses the discrete 4D occupancy rollout
-        into a compact continuous latent grid, which is patchified into occupancy tokens.
-        Unlike prior implementations, the Occ-VAE is pretrained with variable-length rollouts,
-        enabling flexible generation horizons. On the text side, a frozen
-        <b>Vision-Language Model</b> replaces CLIP-style &ldquo;bag-of-words&rdquo; encoders to
-        capture the relational and procedural semantics of interaction-heavy scripts
-        (e.g., yielding, cut-in). A lightweight bidirectional <b>Token Refiner</b> then projects
-        the VLM features into the model dimension, bridging the semantic-spatial divide.
+        冻结的 <b>Occ-VAE</b> 将离散的 4D 占据序列压缩为紧凑的连续潜在网格，再经分块化得到占据词元。
+        与既有实现不同，该 Occ-VAE 在预训练阶段即使用变长序列，从而支持灵活的生成时域。文本侧，
+        冻结的<b>视觉语言模型</b>取代 CLIP 式「词袋」编码器，以捕捉交互密集型剧本中的关系性与过程性
+        语义（如让行、加塞）。随后，轻量级的双向 <b>Token Refiner</b> 将 VLM 特征投影至模型维度，
+        弥合语义与空间之间的鸿沟。
       </p>
 
-      <h3 class="title is-4">Scalable 4D Generation Backbone</h3>
+      <h3 class="title is-4">可扩展的 4D 生成骨干</h3>
       <p>
-        Modeling multi-agent interactions over 4D space demands long-range dependencies, yet
-        full attention over spatial&times;temporal tokens is computationally prohibitive.
-        OccDirector adopts a double-stream <b>Spatio-Temporal MMDiT</b> with
-        <b>Spatio-Temporal Separated Attention (STSA)</b>: frame-wise 3D spatial joint attention
-        grounds the script onto each layout, followed by patch-wise temporal self-attention
-        that propagates dynamics smoothly over time, aligned with separated 3D+1D Rotary
-        Positional Embeddings.
+        在 4D 空间中建模多智能体交互需要长程依赖，而对空间&times;时间上的全部词元做全局注意力的
+        计算开销难以承受。为此，OccDirector 采用双流 <b>Spatio-Temporal MMDiT</b> 与
+        <b>时空分离注意力（STSA）</b>：逐帧的 3D 空间联合注意力将剧本落地到每一帧布局，随后的
+        逐块时间自注意力使动态随时间平滑传递，并与分离的 3D+1D 旋转位置编码相对应。
       </p>
 
-      <h3 class="title is-4">Interaction-Consistent Forecasting via History Anchoring</h3>
+      <h3 class="title is-4">基于历史锚定的交互一致预测</h3>
       <p>
-        OccDirector is trained with <b>Flow Matching</b>. To keep long-horizon rollouts
-        consistent with user-provided history contexts, we introduce a stochastic
-        <b>token-replace anchoring</b> strategy: during training, the noisy history prefix is
-        randomly replaced with clean ground-truth tokens, and the loss only penalizes future
-        frames. At inference, the history prefix is overwritten with the clean condition at
-        every ODE step. Because the model is explicitly trained to condition on clean history,
-        this step-wise anchoring introduces no out-of-distribution artifacts.
+        OccDirector 以 <b>Flow Matching</b> 目标训练。为使长时程生成与用户提供的历史上下文保持一致，
+        我们引入随机<b>词元替换锚定</b>策略：训练时，含噪的历史前缀以一定概率被替换为干净的真值词元，
+        且损失仅施加于未来帧；推理时，则在每一个 ODE 步用干净的条件覆写历史前缀。由于模型被显式
+        训练为以干净历史为条件，这种逐步锚定不会引入分布外伪影。
       </p>
     </div>
   </div>
@@ -231,14 +212,14 @@
 
 <section class="section" id="results" style="background:#fafafa;">
   <div class="container is-max-desktop">
-    <h2 class="title is-3 has-text-centered">Results</h2>
+    <h2 class="title is-3 has-text-centered">结果</h2>
 
-    <h3 class="title is-4 has-text-centered">Single-frame visual quality</h3>
+    <h3 class="title is-4 has-text-centered">单帧视觉质量</h3>
     <div class="table-container">
       <table class="table is-striped is-hoverable is-fullwidth results-table">
         <thead>
         <tr>
-          <th>Method</th>
+          <th>方法</th>
           <th>IS &uarr;</th>
           <th>FID &darr;</th>
           <th>KID &darr;</th>
@@ -288,7 +269,7 @@
           <td>0.22</td>
         </tr>
         <tr>
-          <td>OccDirector w/o history-prefix control</td>
+          <td>OccDirector（无历史前缀控制）</td>
           <td>3.39</td>
           <td>64</td>
           <td><b>0.05</b></td>
@@ -296,7 +277,7 @@
           <td><b>0.24</b></td>
         </tr>
         <tr>
-          <td>OccDirector w/ history-prefix control</td>
+          <td>OccDirector（含历史前缀控制）</td>
           <td><b>3.40</b></td>
           <td><b>62</b></td>
           <td><b>0.05</b></td>
@@ -307,29 +288,28 @@
       </table>
     </div>
     <p class="table-note">
-      Per-frame image fidelity and diversity, evaluated with Inception Score (IS), Fr&eacute;chet
-      Inception Distance (FID), Kernel Inception Distance (KID), Precision and Recall.
-      Although traditional methods rely on explicit geometric conditions, OccDirector achieves
-      comparable per-frame quality while being conditioned purely on text.
+      逐帧图像的保真度与多样性，采用 Inception Score（IS）、Fr&eacute;chet Inception Distance（FID）、
+      Kernel Inception Distance（KID）、Precision 与 Recall 评估。尽管传统方法依赖显式几何条件，
+      OccDirector 在仅以文本为条件的同时取得了相当的单帧质量。
     </p>
 
-    <h3 class="title is-4 has-text-centered">Video generation quality and instruction alignment</h3>
+    <h3 class="title is-4 has-text-centered">视频生成质量与指令对齐</h3>
     <div class="table-container">
       <table class="table is-striped is-hoverable is-fullwidth results-table">
         <thead>
         <tr>
-          <th rowspan="2">Method</th>
-          <th colspan="3" style="text-align:center;">Video realism</th>
-          <th colspan="4" style="text-align:center;">Instruction alignment</th>
+          <th rowspan="2">方法</th>
+          <th colspan="3" style="text-align:center;">视频真实感</th>
+          <th colspan="4" style="text-align:center;">指令对齐</th>
         </tr>
         <tr>
           <th>FVD &darr;</th>
           <th>Precision &uarr;</th>
           <th>Recall &uarr;</th>
-          <th>Compl. &uarr;</th>
-          <th>Struct. &uarr;</th>
-          <th>Sem. Align. &uarr;</th>
-          <th>Mean &uarr;</th>
+          <th>完整性 &uarr;</th>
+          <th>结构性 &uarr;</th>
+          <th>语义对齐 &uarr;</th>
+          <th>均值 &uarr;</th>
         </tr>
         </thead>
         <tbody>
@@ -338,30 +318,30 @@
           <td>437</td>
           <td>0.55</td>
           <td>0.03</td>
-          <td>N/A</td>
-          <td>N/A</td>
-          <td>N/A</td>
-          <td>N/A</td>
+          <td>不适用</td>
+          <td>不适用</td>
+          <td>不适用</td>
+          <td>不适用</td>
         </tr>
         <tr>
           <td>COME</td>
           <td><b>391</b></td>
           <td>0.56</td>
           <td>0.04</td>
-          <td>N/A</td>
-          <td>N/A</td>
-          <td>N/A</td>
-          <td>N/A</td>
+          <td>不适用</td>
+          <td>不适用</td>
+          <td>不适用</td>
+          <td>不适用</td>
         </tr>
         <tr>
           <td>DynamicCity</td>
           <td>401</td>
           <td><b>0.57</b></td>
           <td><b>0.08</b></td>
-          <td>N/A</td>
-          <td>N/A</td>
-          <td>N/A</td>
-          <td>N/A</td>
+          <td>不适用</td>
+          <td>不适用</td>
+          <td>不适用</td>
+          <td>不适用</td>
         </tr>
         <tr>
           <td>DynamicCity + CLIP</td>
@@ -384,7 +364,7 @@
           <td>2.97</td>
         </tr>
         <tr>
-          <td>OccDirector w/o history-prefix control</td>
+          <td>OccDirector（无历史前缀控制）</td>
           <td>354</td>
           <td>0.48</td>
           <td><b>0.12</b></td>
@@ -394,7 +374,7 @@
           <td>3.43</td>
         </tr>
         <tr>
-          <td>OccDirector w/ history-prefix control</td>
+          <td>OccDirector（含历史前缀控制）</td>
           <td><b>275</b></td>
           <td>0.58</td>
           <td><b>0.12</b></td>
@@ -407,36 +387,35 @@
       </table>
     </div>
     <p class="table-note">
-      OccDirector achieves an FVD of <b>275</b>, outperforming the strongest text-adapted
-      baseline (DynamicCity + CLIP, FVD 388) by <b>29.1%</b>. The extremely low Recall of
-      CLIP/T5 baselines (e.g., 0.008) reveals severe mode collapse, while OccDirector covers a
-      much wider diversity of dynamic scenarios. Instruction alignment is scored by a VLM judge
-      on a 1&ndash;5 rubric.
+      OccDirector 取得 <b>275</b> 的 FVD，较最强的文本适配基线（DynamicCity + CLIP，FVD 388）
+      提升 <b>29.1%</b>。CLIP/T5 基线的 Recall 极低（如 0.008），暴露出严重的模式坍缩；
+      而 OccDirector 所覆盖的动态场景多样性要宽泛得多。指令对齐得分由 VLM 评委按
+      1&ndash;5 分量表评定。
     </p>
 
-    <h3 class="title is-4 has-text-centered">Ablation study</h3>
+    <h3 class="title is-4 has-text-centered">消融实验</h3>
     <div class="table-container">
       <table class="table is-striped is-hoverable is-fullwidth results-table">
         <thead>
         <tr>
-          <th rowspan="2">Backbone</th>
+          <th rowspan="2">骨干网络</th>
           <th rowspan="2">Token Refiner</th>
-          <th colspan="3" style="text-align:center;">Video realism</th>
-          <th colspan="4" style="text-align:center;">VLM score &uarr;</th>
+          <th colspan="3" style="text-align:center;">视频真实感</th>
+          <th colspan="4" style="text-align:center;">VLM 评分 &uarr;</th>
         </tr>
         <tr>
           <th>FVD &darr;</th>
           <th>Precision &uarr;</th>
           <th>Recall &uarr;</th>
-          <th>Compl. &uarr;</th>
-          <th>Struct. &uarr;</th>
-          <th>Instr. follow &uarr;</th>
-          <th>Mean &uarr;</th>
+          <th>完整性 &uarr;</th>
+          <th>结构性 &uarr;</th>
+          <th>指令遵循 &uarr;</th>
+          <th>均值 &uarr;</th>
         </tr>
         </thead>
         <tbody>
         <tr>
-          <td>Full attention</td>
+          <td>全局注意力</td>
           <td>&times;</td>
           <td>592</td>
           <td><b>0.48</b></td>
@@ -447,7 +426,7 @@
           <td>2.77</td>
         </tr>
         <tr>
-          <td>Full attention</td>
+          <td>全局注意力</td>
           <td>&#10003;</td>
           <td><b>532</b></td>
           <td>0.41</td>
@@ -458,7 +437,7 @@
           <td><b>2.78</b></td>
         </tr>
         <tr>
-          <td>STSA (ours)</td>
+          <td>STSA（本文）</td>
           <td>&times;</td>
           <td>407</td>
           <td>0.49</td>
@@ -469,7 +448,7 @@
           <td>3.24</td>
         </tr>
         <tr>
-          <td>STSA (ours)</td>
+          <td>STSA（本文）</td>
           <td>&#10003;</td>
           <td><b>354</b></td>
           <td><b>0.58</b></td>
@@ -483,32 +462,30 @@
       </table>
     </div>
     <p class="table-note">
-      Impact of the attention mechanism (Full vs. STSA) and the Token Refiner, evaluated
-      without history control. STSA reduces FVD from 532 to 354 and lifts the VLM score from
-      2.78 to 3.43; removing the Token Refiner degrades FVD from 354 to 407.
+      在不使用历史控制的设置下，评估注意力机制（全局 vs. STSA）与 Token Refiner 的影响。
+      STSA 将 FVD 从 532 降至 354，并将 VLM 评分从 2.78 提升至 3.43；移除 Token Refiner 后，
+      FVD 从 354 恶化至 407。
     </p>
 
-    <h3 class="title is-4 has-text-centered">Qualitative comparison on fine-grained text alignment</h3>
+    <h3 class="title is-4 has-text-centered">细粒度文本对齐的定性对比</h3>
     <div class="content has-text-centered">
       <img src="./static/images/qual_comparison.jpg" class="figure-img"
-           alt="Qualitative comparison of text-to-occupancy alignment."/>
+           alt="文本到占据对齐的定性对比。"/>
       <p class="figure-caption">
-        <strong>Qualitative comparison of text-to-occupancy alignment.</strong>
-        We evaluate adherence to fine-grained instructions: (Left) negation and cardinality;
-        (Middle) dynamic attribute binding; (Right) complex &ldquo;cut-in&rdquo; trajectory.
-        While CLIP/T5 baselines hallucinate extra vehicles, confuse attributes, or revert to
-        lane-following, OccDirector follows the script precisely.
+        <strong>文本到占据对齐的定性对比。</strong>
+        我们评估对细粒度指令的遵循情况：（左）否定与数量；（中）动态属性绑定；
+        （右）复杂「加塞」轨迹。CLIP/T5 基线会幻视出多余车辆、混淆属性或退化为车道跟随，
+        而 OccDirector 能精确遵循剧本。
       </p>
     </div>
 
-    <h3 class="title is-4 has-text-centered">Long-horizon narrative generation</h3>
+    <h3 class="title is-4 has-text-centered">长时程叙事生成</h3>
     <div class="content has-text-centered">
       <img src="./static/images/qual_history.jpg" class="figure-img"
-           alt="Long-horizon narrative generation with history-prefix control."/>
+           alt="历史前缀控制下的长时程叙事生成。"/>
       <p class="figure-caption">
-        <strong>Long-horizon narrative generation.</strong> Multi-stage rollouts for a
-        stop-and-go scenario (top) and an emergency braking event (bottom). History-prefix
-        control maintains spatio-temporal coherence and causal logic across generation stages.
+        <strong>长时程叙事生成。</strong>针对走走停停场景（上）与紧急制动事件（下）的多阶段生成。
+        历史前缀控制在各生成阶段之间保持了时空连贯性与因果逻辑。
       </p>
     </div>
   </div>
@@ -516,31 +493,27 @@
 
 <section class="section" id="demos">
   <div class="container is-max-desktop">
-    <h2 class="title is-3 has-text-centered">Hierarchical Control</h2>
+    <h2 class="title is-3 has-text-centered">层级控制</h2>
     <div class="content has-text-justified">
       <p>
-        By replacing rigid trajectory inputs with a director-like natural language interface,
-        OccDirector enables comprehensive controllability along three complementary axes:
-        <b>(i) Static Environment</b>, synthesizing diverse topologies like &ldquo;traffic
-        jams&rdquo; via semantic composition; <b>(ii) Agent-Environment Interaction</b>,
-        executing topology-constrained maneuvers such as yielding at intersections; and
-        <b>(iii) Multi-Agent Interaction</b>, generating physically plausible reactive behaviors
-        like &ldquo;emergency braking to avoid collisions&rdquo;.
+        通过以「导演式」的自然语言接口取代刚性的轨迹输入，OccDirector 在三个互补的维度上实现了
+        全面的可控性：<b>（一）静态环境</b>，通过语义组合合成「拥堵」等多样化拓扑；
+        <b>（二）智能体-环境交互</b>，执行路口让行等受拓扑约束的机动动作；
+        <b>（三）多智能体交互</b>，生成「紧急制动避撞」等物理合理的反应式行为。
       </p>
     </div>
     <div class="content has-text-centered">
       <img src="./static/images/hierarchical_control.jpg" class="figure-img"
-           alt="Hierarchical control samples across Static, Agent-Environment and Multi-Agent levels."/>
+           alt="静态、智能体-环境与多智能体层级的分层控制示例。"/>
       <p class="figure-caption">
-        Hierarchical generation samples across the Static, Agent-Environment, and Multi-Agent
-        control levels, driven purely by natural language scripts.
+        静态、智能体-环境与多智能体三个控制层级下的分层生成示例，完全由自然语言剧本驱动。
       </p>
     </div>
     <div class="content has-text-centered">
       <img src="./static/images/long_horizon.jpg" class="figure-img"
-           alt="Long-horizon generation samples."/>
+           alt="长时程生成示例。"/>
       <p class="figure-caption">
-        Additional long-horizon rollouts orchestrated by multi-stage language scripts.
+        由多阶段语言剧本统筹的更多长时程生成结果。
       </p>
     </div>
   </div>
@@ -548,15 +521,13 @@
 
 <section class="section" id="dataset" style="background:#fafafa;">
   <div class="container is-max-desktop">
-    <h2 class="title is-3 has-text-centered">OccInteract-85k Dataset</h2>
+    <h2 class="title is-3 has-text-centered">OccInteract-85k 数据集</h2>
     <div class="content has-text-justified">
       <p>
-        To train OccDirector with language-conditioned occupancy prediction, we build
-        <b>OccInteract-85k</b> via an automated data engine that translates real-world logs
-        (UniOcc), large-scale simulation (CarlaSC protocol), and text-defined safety-critical
-        scenarios (TTSG) into paired occupancy&ndash;language instances. All annotations are
-        generated with structured prompting and enforced output schemas, enabling scalable
-        production and automatic filtering.
+        为了以语言条件的占据预测来训练 OccDirector，我们通过自动化数据引擎构建了
+        <b>OccInteract-85k</b>：将真实世界日志（UniOcc）、大规模仿真（CarlaSC 协议）与
+        文本定义的安全关键场景（TTSG）转化为成对的占据&ndash;语言样本。全部标注均由结构化提示与
+        强制输出模式生成，从而支持规模化生产与自动过滤。
       </p>
     </div>
 
@@ -564,101 +535,95 @@
       <table class="table is-striped is-hoverable is-centered results-table">
         <thead>
         <tr>
-          <th>Dataset</th>
-          <th># Instances</th>
-          <th>Total Duration</th>
+          <th>数据集</th>
+          <th>实例数</th>
+          <th>总时长</th>
         </tr>
         </thead>
         <tbody>
         <tr>
           <td>OccInteract-Static</td>
           <td>73.5k</td>
-          <td>N/A (Single-frame)</td>
+          <td>不适用（单帧）</td>
         </tr>
         <tr>
           <td>OccInteract-Env</td>
           <td>7.6k</td>
-          <td>128&thinsp;h</td>
+          <td>128&thinsp;小时</td>
         </tr>
         <tr>
           <td>OccInteract-Agent</td>
           <td>4.6k</td>
-          <td>12&thinsp;h</td>
+          <td>12&thinsp;小时</td>
         </tr>
         </tbody>
       </table>
     </div>
     <p class="table-note">
-      Instances denote single frames for OccInteract-Static and video clips for
-      OccInteract-Env / OccInteract-Agent.
+      实例在 OccInteract-Static 中指单帧，在 OccInteract-Env / OccInteract-Agent 中指视频片段。
     </p>
 
     <div class="content has-text-justified method-block">
-      <h3 class="title is-4">Three complementary corpora</h3>
+      <h3 class="title is-4">三个互补的语料子集</h3>
       <p>
-        <b>OccInteract-Static</b> pairs single-frame BEV semantic occupancy snapshots with
-        ego-centric layout captions focusing on road topology and drivable regions.
-        <b>OccInteract-Env</b> provides clip-level supervision around key maneuvers at
-        junctions, each with a discrete ego-action command and local topology description.
-        <b>OccInteract-Agent</b> covers routine driving to safety-critical near-misses, with
-        interaction-focused captions and a VLM-predicted criticality score
-        (s&thinsp;&isin;&thinsp;[0,&thinsp;10]) whose trimodal distribution enables targeted
-        sampling of rare, high-risk scenarios.
+        <b>OccInteract-Static</b> 将单帧 BEV 语义占据快照与以自车为中心、聚焦道路拓扑与可行驶区域的
+        布局描述配对。<b>OccInteract-Env</b> 提供围绕路口关键机动的片段级监督，每条样本附带离散的
+        自车动作指令与局部拓扑描述。<b>OccInteract-Agent</b> 覆盖从日常驾驶到安全关键的险情场景，
+        配有交互导向的描述以及 VLM 预测的关键性分数（s&thinsp;&isin;&thinsp;[0,&thinsp;10]），
+        其三峰分布支持对罕见高风险场景的定向采样。
       </p>
     </div>
 
     <div class="content has-text-centered method-block">
-      <h3 class="title is-4">Automated annotation pipeline</h3>
+      <h3 class="title is-4">自动化标注流水线</h3>
       <div class="columns is-centered">
         <div class="column">
           <img src="./static/images/pipeline_turnpoint.jpg" class="figure-img"
-               alt="Environment-interaction annotation pipeline."/>
+               alt="环境-交互标注流水线。"/>
           <p class="figure-caption">
-            Environment-interaction annotation: road-geometry analysis detects junctions and
-            turn points in collected occupancy clips, and a frozen VLM generates
-            schema-constrained captions around each key maneuver (OccInteract-Env).
+            环境-交互标注：道路几何分析在采集的占据片段中检测路口与转向点，冻结的 VLM
+            围绕每个关键机动生成受模式约束的描述（OccInteract-Env）。
           </p>
         </div>
         <div class="column">
           <img src="./static/images/pipeline_multiagent.jpg" class="figure-img"
-               alt="Multi-agent annotation pipeline."/>
+               alt="多智能体标注流水线。"/>
           <p class="figure-caption">
-            Multi-agent annotation: text-defined safety-critical scenarios are rendered into
-            occupancy rollouts and captioned with an interaction-focused description plus a
-            VLM-predicted criticality score (OccInteract-Agent).
+            多智能体标注：文本定义的安全关键场景被渲染为占据序列，并配以交互导向描述
+            与 VLM 预测的关键性分数（OccInteract-Agent）。
           </p>
         </div>
       </div>
       <img src="./static/images/pipeline_bev.jpg" class="figure-img"
            style="width:200px; margin:0 auto;"
-           alt="Unified semantic occupancy legend."/>
+           alt="统一语义占据图例。"/>
       <p class="figure-caption">
-        Unified 11-class semantic occupancy legend used for BEV rendering across all sources.
+        所有数据源统一用于 BEV 渲染的 11 类语义占据图例。
       </p>
     </div>
 
     <div class="content has-text-centered">
       <img src="./static/images/dataset_distribution.jpg" class="figure-img"
            style="max-width:720px; margin:0 auto;"
-           alt="Data statistics of OccInteract-Agent."/>
+           alt="OccInteract-Agent 数据统计。"/>
       <p class="figure-caption">
-        <strong>Data statistics of OccInteract-Agent.</strong> (a) Distribution of clip lengths.
-        (b) Histogram of VLM-predicted criticality scores. (c) Distribution of caption lengths.
+        <strong>OccInteract-Agent 数据统计。</strong>(a) 片段长度分布。
+        (b) VLM 预测关键性分数直方图。(c) 描述长度分布。
       </p>
     </div>
 
     <div class="content has-text-centered method-block">
-      <h3 class="title is-4">Automated quality assessment</h3>
+      <h3 class="title is-4">自动化质量评估</h3>
       <div class="table-container">
         <table class="table is-striped is-hoverable is-fullwidth results-table">
           <thead>
           <tr>
-            <th>Dataset</th>
-            <th>Judge VLM</th>
-            <th>Completeness &uarr;</th>
-            <th>Structural &uarr;</th>
-            <th>Sem. Align. &uarr;</th>
-            <th>Mean &uarr;</th>
+            <th>数据集</th>
+            <th>评测 VLM</th>
+            <th>完整性 &uarr;</th>
+            <th>结构性 &uarr;</th>
+            <th>语义对齐 &uarr;</th>
+            <th>均值 &uarr;</th>
           </tr>
           </thead>
           <tbody>
@@ -738,10 +703,9 @@
         </table>
       </div>
       <p class="table-note">
-        Mean rubric scores (1&ndash;5) from three independent VLM judges, assessing the quality
-        of the generated dataset. Despite the increasing complexity from static layouts to
-        multi-agent interactions, score variance under the same judge remains minimal,
-        validating the reliability of the automated pipeline.
+        三个独立 VLM 评委按 1&ndash;5 分量表给出的平均评分，用于评估所生成数据集的质量。
+        尽管复杂度从静态布局递增至多智能体交互，同一评委下的分数方差仍然极小，
+        验证了自动化流水线的可靠性。
       </p>
     </div>
   </div>
@@ -749,7 +713,7 @@
 
 <section class="section" id="citation">
   <div class="container is-max-desktop content">
-    <h2 class="title is-3 has-text-centered">Citation</h2>
+    <h2 class="title is-3 has-text-centered">引用</h2>
     <pre><code>@inproceedings{liang2026occdirector,
   author    = {Liang, Zhuding and Yan, Tianyi and Chen, Dubing and Zheng, Jiasen
                and Zheng, Huan and Xu, Cheng-zhong and Wang, Yida and Zhan, Kun
@@ -766,14 +730,13 @@
   <div class="container">
     <div class="content has-text-centered">
       <p>
-        This website is licensed under a <a rel="license"
-                                            href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
-        Commons Attribution-ShareAlike 4.0 International License</a>.
+        本网站基于<a rel="license"
+                     href="http://creativecommons.org/licenses/by-sa/4.0/">知识共享署名-相同方式共享
+        4.0 国际许可协议</a>授权。
       </p>
       <p>
-        The page was adapted from the
-        <a href="https://nerfies.github.io">Nerfies</a> project page template &mdash; we thank
-        the authors for sharing it.
+        本页面改编自 <a href="https://nerfies.github.io">Nerfies</a>
+        项目主页模板&mdash;&mdash;感谢作者的开源分享。
       </p>
     </div>
   </div>

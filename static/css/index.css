@@ -26,17 +26,20 @@
 }
 
 body {
-  font-family: 'Noto Sans', sans-serif;
+  font-family: 'Noto Sans', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei',
+               'Noto Sans CJK SC', 'Source Han Sans SC', sans-serif;
 }
 
 /* ---- Hero / authors ---- */
 .publication-title {
-  font-family: 'Noto Sans', sans-serif;
+  font-family: 'Noto Sans', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei',
+               'Noto Sans CJK SC', 'Source Han Sans SC', sans-serif;
   font-weight: 700;
 }
 
 .publication-authors {
-  font-family: 'Noto Sans', sans-serif;
+  font-family: 'Noto Sans', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei',
+               'Noto Sans CJK SC', 'Source Han Sans SC', sans-serif;
 }
 
 .publication-authors a {
