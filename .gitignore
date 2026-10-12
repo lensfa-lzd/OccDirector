@@ -1,0 +1,33 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+.ipynb_checkpoints/
+
+# Secrets — never commit
+.env
+# Private CARLA infrastructure layout (see hosts.example.json)
+hosts.json
+
+# Data / artifacts (downloaded or generated at runtime)
+data/
+datasets/
+ckpt/
+*.ckpt
+*.safetensors
+*.pt
+*.pth
+outputs/
+output/
+logs/
+pl_logs/
+*.npy
+*.npz
+*.pkl
+
+# OS / editor
+.DS_Store
+.idea/
+.vscode/
+graph_cache/

@@ -1,0 +1,50 @@
+# OccDirector — verified with Python 3.10 / CUDA 12.4 wheels.
+# Install torch first with the index matching your CUDA toolkit, e.g.:
+#   pip install torch==2.5.1 --index-url https://download.pytorch.org/whl/cu124
+torch==2.5.1
+pytorch-lightning==2.6.6
+torchmetrics==1.9.0
+
+# Text encoders / diffusion stack.
+# transformers must support Qwen3-VL (used by model/vlm_encoder).
+transformers==5.17.0
+accelerate==1.13.0
+bitsandbytes==0.50.2
+diffusers==0.35.0
+einops==0.8.2
+timm==1.0.30
+
+# Numeric / imaging.
+numpy==2.2.5
+scipy==1.15.3
+opencv-python==5.0.0.93
+pillow==12.0.0
+matplotlib==3.10.9
+pyvista==0.44.1
+scikit-image==0.25.2
+imageio==2.38.0
+tabulate==0.10.0
+
+# Data engine (planning, geometry, CLI utilities).
+shapely==2.1.2
+networkx==3.4.2
+pydantic==2.14.0
+python-dotenv==1.2.4
+tqdm==4.70.0
+colorama==0.4.6
+timeout-decorator==0.5.0
+
+# VLM-as-judge evaluation (evaluation/vlm_eval).
+openai==2.54.0
+httpx==0.28.1
+langchain==0.3.30
+langchain-openai==0.3.35
+json_repair==0.64.0
+prdc==0.2
+
+# Optional — rendering scenes with a CARLA server (data_engine/env_collector,
+# data_engine/agent_generator). Requires a matching CARLA server install.
+# carla==0.9.15
+
+# Optional — downloading checkpoints from ModelScope.
+# modelscope
